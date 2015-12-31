@@ -70,7 +70,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\nancybook\nancybook.csproj">
+    <ProjectReference Include="..\NancyFxBook\NancyFxBook.csproj">
       <Project>{552672fb-958b-4651-9348-ccdc64ad2150}</Project>
       <Name>nancybook</Name>
     </ProjectReference>

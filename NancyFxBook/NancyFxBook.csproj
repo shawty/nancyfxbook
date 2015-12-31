@@ -75,9 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <Content Include="RIFFNEW.pdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Include="content\RIFFNEW.pdf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -152,17 +150,17 @@
     <Compile Include="modules\AccountRoutes.cs" />
     <Compile Include="modules\AuthRoutes.cs" />
     <Compile Include="modules\AddressRoutes.cs" />
+    <Compile Include="modules\MP3PlayerRoutes.cs" />
     <Compile Include="modules\TestingRoutes.cs" />
     <Compile Include="modules\FluentValidationRoutes.cs" />
     <Compile Include="modules\CachingRoutes.cs" />
     <Compile Include="modules\SessionRoutes.cs" />
     <Compile Include="Models\SessionDemo.cs" />
     <Compile Include="modules\BaseRoutes.cs" />
-    <Compile Include="modules\MP3player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\demodata\demodata.csproj">
+    <ProjectReference Include="..\DemoData\DemoData.csproj">
       <Project>{29a0d96b-4ad8-43aa-a53c-42883120da6e}</Project>
       <Name>demodata</Name>
     </ProjectReference>
