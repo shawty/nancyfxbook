@@ -1,13 +1,4 @@
-﻿// //===========================================================================================
-// // Project          : nancybook
-// // Author           : Peter Shaw (Digital Solutions UK)
-// // Date             : 22/04/2015
-// // Module           : FluentValidationRoutes.cs
-// // Purpose          : Provides the basic routes for nancy in response to leaf nodes hanging off /fluentvalidation
-// //===========================================================================================
-
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using nancybook.Models;
 using Nancy;
 using Nancy.ModelBinding;
@@ -19,72 +10,8 @@ namespace nancybook.modules
     public FluentValidationRoutes()
       : base("/fluentvalidation")
     {
-      Get[@"/"] = _ =>
-      {
-        SetDefaultClasses();
-        FluentValidationExample startObject = new FluentValidationExample();
-        return View["index.html", startObject];
-      };
-
-      Post[@"/validate"] = _ =>
-      {
-        SetDefaultClasses();
-        var validationResult = this.BindAndValidate<FluentValidationExample>();
-
-        if (!ModelValidationResult.IsValid)
-        {
-          if (ModelValidationResult.Errors.ContainsKey("UserName"))
-          {
-            ViewBag.UserNameClasses = "form-group has-error";
-            ViewBag.UserNameHelpClasses = "help-block hidden";
-            ViewBag.UserNameMessageClasses = "help-block";
-            ViewBag.UserNameMessages =
-              (from error in ModelValidationResult.Errors.Where(e => e.Key.Equals("UserName"))
-               from msg in error.Value
-               select msg.ErrorMessage).ToList().First();
-          }
-
-          if (ModelValidationResult.Errors.ContainsKey("EmailAddress"))
-          {
-            ViewBag.EmailAddressClasses = "form-group has-error";
-            ViewBag.EmailAddressHelpClasses = "help-block hidden";
-            ViewBag.EmailAddressMessageClasses = "help-block";
-            ViewBag.EmailAddressMessages =
-              (from error in ModelValidationResult.Errors.Where(e => e.Key.Equals("EmailAddress"))
-               from msg in error.Value
-               select msg.ErrorMessage).ToList().First();
-          }
-
-          if (ModelValidationResult.Errors.ContainsKey("Password"))
-          {
-            ViewBag.PasswordClasses = "form-group has-error";
-            ViewBag.PasswordHelpClasses = "help-block hidden";
-            ViewBag.PasswordMessageClasses = "help-block";
-
-            ViewBag.PasswordMessages =
-              (from error in ModelValidationResult.Errors.Where(e => e.Key.Equals("Password"))
-               from msg in error.Value
-               select msg.ErrorMessage).ToList().First();
-          }
-
-          if (ModelValidationResult.Errors.ContainsKey("PinCode"))
-          {
-            ViewBag.PinCodeClasses = "form-group has-error";
-            ViewBag.PinCodeHelpClasses = "help-block hidden";
-            ViewBag.PinCodeMessageClasses = "help-block";
-
-            ViewBag.PinCodeMessages =
-              (from error in ModelValidationResult.Errors.Where(e => e.Key.Equals("PinCode"))
-               from msg in error.Value
-               select msg.ErrorMessage).ToList().First();
-          }
-
-          return View["index.html", validationResult];
-        }
-
-        return View["validated.html"];
-      };
-
+      Get[@"/"] = Index;
+      Post[@"/validate"] = PostValidation;
     }
 
     private void SetDefaultClasses()
@@ -108,6 +35,72 @@ namespace nancybook.modules
       ViewBag.PinCodeHelpClasses = "help-block";
       ViewBag.PinCodeMessageClasses = "help-block hidden";
       ViewBag.PinCodeMessages = "";
+    }
+
+    private dynamic Index(dynamic parameters)
+    {
+      SetDefaultClasses();
+      FluentValidationExample startObject = new FluentValidationExample();
+      return View["index.html", startObject];
+    }
+
+    private dynamic PostValidation(dynamic parameters)
+    {
+      SetDefaultClasses();
+      var validationResult = this.BindAndValidate<FluentValidationExample>();
+
+      if (!ModelValidationResult.IsValid)
+      {
+        if (ModelValidationResult.Errors.ContainsKey("UserName"))
+        {
+          ViewBag.UserNameClasses = "form-group has-error";
+          ViewBag.UserNameHelpClasses = "help-block hidden";
+          ViewBag.UserNameMessageClasses = "help-block";
+          ViewBag.UserNameMessages =
+            (from error in ModelValidationResult.Errors.Where(e => e.Key.Equals("UserName"))
+             from msg in error.Value
+             select msg.ErrorMessage).ToList().First();
+        }
+
+        if (ModelValidationResult.Errors.ContainsKey("EmailAddress"))
+        {
+          ViewBag.EmailAddressClasses = "form-group has-error";
+          ViewBag.EmailAddressHelpClasses = "help-block hidden";
+          ViewBag.EmailAddressMessageClasses = "help-block";
+          ViewBag.EmailAddressMessages =
+            (from error in ModelValidationResult.Errors.Where(e => e.Key.Equals("EmailAddress"))
+             from msg in error.Value
+             select msg.ErrorMessage).ToList().First();
+        }
+
+        if (ModelValidationResult.Errors.ContainsKey("Password"))
+        {
+          ViewBag.PasswordClasses = "form-group has-error";
+          ViewBag.PasswordHelpClasses = "help-block hidden";
+          ViewBag.PasswordMessageClasses = "help-block";
+
+          ViewBag.PasswordMessages =
+            (from error in ModelValidationResult.Errors.Where(e => e.Key.Equals("Password"))
+             from msg in error.Value
+             select msg.ErrorMessage).ToList().First();
+        }
+
+        if (ModelValidationResult.Errors.ContainsKey("PinCode"))
+        {
+          ViewBag.PinCodeClasses = "form-group has-error";
+          ViewBag.PinCodeHelpClasses = "help-block hidden";
+          ViewBag.PinCodeMessageClasses = "help-block";
+
+          ViewBag.PinCodeMessages =
+            (from error in ModelValidationResult.Errors.Where(e => e.Key.Equals("PinCode"))
+             from msg in error.Value
+             select msg.ErrorMessage).ToList().First();
+        }
+
+        return View["index.html", validationResult];
+      }
+
+      return View["validated.html"];
     }
 
   }

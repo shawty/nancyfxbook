@@ -1,14 +1,4 @@
-﻿// //===========================================================================================
-// // Project          : nancybook
-// // Author           : Peter Shaw (Digital Solutions UK)
-// // Date             : 29/04/2015
-// // Module           : CachingRoutes.cs
-// // Purpose          : Handles routing for the caching example
-// //===========================================================================================
-
-using System;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
+﻿using System;
 using nancybook.Models;
 using Nancy;
 

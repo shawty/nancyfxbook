@@ -1,12 +1,4 @@
-﻿// //===========================================================================================
-// // Project          : nancybook
-// // Author           : Peter Shaw (Digital Solutions UK)
-// // Date             : 11/05/2015
-// // Module           : FluentValidationExample.cs
-// // Purpose          : Demo object showing how to use the fluent validation functionality
-// //===========================================================================================
-
-//using FluentValidation;
+﻿using FluentValidation;
 
 namespace nancybook.Models
 {
@@ -20,15 +12,15 @@ namespace nancybook.Models
 
   }
 
-  //public class FluentValidationExampleValidator : AbstractValidator<FluentValidationExample>
-  //{
-  //  public FluentValidationExampleValidator()
-  //  {
-  //    RuleFor(x => x.UserName).NotNull().NotEmpty();
-  //    RuleFor(x => x.EmailAddress).NotNull().NotEmpty().EmailAddress().WithMessage("Email address was not supplied or is not a validly formed email address.");
-  //    RuleFor(x => x.Password).NotNull().NotEmpty().Equal(y => y.PasswordRepeat).Equal("letmein").WithMessage("Invalid password specified.");
-  //    RuleFor(x => x.PinCode).NotNull().NotEmpty().Equal("1234").WithMessage("Invalid pin code specified.");
-  //  }
-  //}
+  public class FluentValidationExampleValidator : AbstractValidator<FluentValidationExample>
+  {
+    public FluentValidationExampleValidator()
+    {
+      RuleFor(x => x.UserName).NotNull().NotEmpty();
+      RuleFor(x => x.EmailAddress).NotNull().NotEmpty().EmailAddress().WithMessage("Email address was not supplied or is not a validly formed email address.");
+      RuleFor(x => x.Password).NotNull().NotEmpty().Equal(y => y.PasswordRepeat).Equal("letmein").WithMessage("Invalid password specified.");
+      RuleFor(x => x.PinCode).NotNull().NotEmpty().Equal("1234").WithMessage("Invalid pin code specified.");
+    }
+  }
 
 }

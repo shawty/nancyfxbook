@@ -1,10 +1,7 @@
-﻿using System;
-using nancybook.modules;
+﻿using nancybook.modules;
 using Nancy;
 using Nancy.Testing;
 using NUnit.Framework;
-using NUnit.Framework.Constraints;
-using Xunit;
 
 namespace NancyTesting
 {
@@ -17,7 +14,7 @@ namespace NancyTesting
       var browser = new Browser(with => with.Module(new TestingRoutes()));
 
       // Act
-      var response = browser.Get("/");
+      var response = browser.Get("/test");
 
       // Assert
       Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
@@ -31,7 +28,7 @@ namespace NancyTesting
       var browser = new Browser(with => with.Module(new TestingRoutes()));
 
       // Act
-      var response = browser.Post("/save/", (with) =>
+      var response = browser.Post("/test/save/", (with) =>
       {
         with.HttpRequest();
         with.FormValue("Name", "Joe Smith");
@@ -50,7 +47,7 @@ namespace NancyTesting
       var browser = new Browser(with => with.Module(new TestingRoutes()));
 
       // Act
-      var response = browser.Post("/save/", (with) =>
+      var response = browser.Post("/test/save/", (with) =>
       {
         with.HttpRequest();
         with.FormValue("Name", "Existing Person");
@@ -69,7 +66,7 @@ namespace NancyTesting
       var browser = new Browser(with => with.Module(new TestingRoutes()));
 
       // Act
-      var response = browser.Post("/save/", (with) =>
+      var response = browser.Post("/test/save/", (with) =>
       {
         with.HttpRequest();
         with.FormValue("NOTName", "Existing Person");
@@ -80,32 +77,6 @@ namespace NancyTesting
       response.ShouldHaveRedirectedTo("/posterror");
 
     }
-
-
-    [Test]
-    public void Should_display_error_message_when_error_passed()
-    {
-      // Given
-      var bootstrapper = new DefaultNancyBootstrapper();
-      var browser = new Browser(bootstrapper);
-
-      // When
-      var response = browser.Get("/login", (with) =>
-      {
-        with.HttpRequest();
-        with.Query("error", "true");
-      });
-
-      // Then
-      response.Body["#errorBox"]
-              .ShouldExistOnce()
-              .And.ShouldBeOfClass("floatingError")
-              .And.ShouldContain(
-                  "invalid",
-                  StringComparison.InvariantCultureIgnoreCase);
-    }
-
-
 
   }
 }

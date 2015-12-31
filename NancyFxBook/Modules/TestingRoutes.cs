@@ -4,9 +4,9 @@ namespace nancybook.modules
 {
   public class TestingRoutes : NancyModule
   {
-    public TestingRoutes()
+    public TestingRoutes() : base("/test")
     {
-      //Get[@"/"] = _ => "Hello World";
+      Get[@"/"] = _ => "Hello World";
 
       Post[@"/save"] = _ =>
       {

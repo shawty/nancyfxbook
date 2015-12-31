@@ -1,12 +1,4 @@
-﻿// //===========================================================================================
-// // Project          : nancybook
-// // Author           : Peter Shaw (Digital Solutions UK)
-// // Date             : 29/04/2015
-// // Module           : BaseRoutes.cs
-// // Purpose          : Provides routing for nancy session example
-// //===========================================================================================
-
-using nancybook.Models;
+﻿using nancybook.Models;
 using Nancy;
 using Nancy.ModelBinding;
 

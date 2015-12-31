@@ -1,16 +1,4 @@
-﻿// //===========================================================================================
-// // Project          : nancybook
-// // Author           : Peter Shaw (Digital Solutions UK)
-// // Date             : 22/04/2015
-// // Module           : BaseRoutes.cs
-// // Purpose          : Provides the basic routes for nancy in response to leaf nodes hanging off /
-// //===========================================================================================
-
-using System;
-using System.Collections.Generic;
-using System.IO;
-using Nancy;
-using Nancy.Responses;
+﻿using Nancy;
 
 namespace nancybook.modules
 {
@@ -18,7 +6,13 @@ namespace nancybook.modules
   {
     public BaseRoutes()
     {
-      Get[@"/"] = _ => Response.AsFile("Pages/Index.html", "text/html");
+      Get[@"/"] = Index;
     }
+
+    private dynamic Index(dynamic parameters)
+    {
+      return View["Home/Index"];
+    }
+
   }
 }

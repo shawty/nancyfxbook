@@ -1,12 +1,4 @@
-﻿// //===========================================================================================
-// // Project          : nancybook
-// // Author           : Peter Shaw (Digital Solutions UK)
-// // Date             : 22/04/2015
-// // Module           : CustomBootstrapper.cs
-// // Purpose          : Provides custom over rides and bootstrapping for the NancyFX project
-// //===========================================================================================
-
-using System.Text;
+﻿using System.Text;
 using demodata;
 using demodata.entities;
 using Nancy;
@@ -22,12 +14,11 @@ namespace nancybook
   {
     protected override void ConfigureConventions(NancyConventions nancyConventions)
     {
-      //base.ConfigureConventions(nancyConventions);
+      base.ConfigureConventions(nancyConventions);
 
       Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("/scripts", @"Scripts"));
       Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("/fonts", @"fonts"));
       Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("/images", @"Images"));
-      Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("/", @"Pages"));
     }
 
     protected override void ConfigureApplicationContainer(TinyIoCContainer container)
