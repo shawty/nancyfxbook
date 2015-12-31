@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nancy Demo | Session Example</title>
+  <link href="~/content/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="page-header">
+    <h1 style="display: inline-block">Nancy Demo <small>Session Example</small></h1>
+    <h1 style="display: inline-block" class="pull-right"><small><a href="~/" title="Click to return to demo home page">home <span class="glyphicon glyphicon-home"></span></a></small></h1>
+  </div>
+  
+  <p class="lead">Please fill in the form below and click submit.</p>
+  <p>Upon doing this the information you set will be saved into session variables in the application and can then be viewed by looking at the <a href="~/session/viewsessionvars">"view session data"</a> link</p>
+
+  <form method="POST" action="~/session/setsessionvars">
+    <div class="form-group">
+      <label for="FullName">Full Name</label>
+      <input type="text" class="form-control" id="FullName" name="FullName" placeholder="Enter full name" />
+    </div>
+    <div class="form-group">
+      <label for="EmailAddress">Email address</label>
+      <input type="email" class="form-control" id="EmailAddress" name="EmailAddress" placeholder="Enter email address" />
+      <p class="help-block">NOTE: This field is set to validate an Email address type so will only accept correctly formatted emails.</p>
+    </div>
+    <div class="form-group">
+      <label for="ResidencePlace">Place of Residence <small>(Town, Country etc.)</small></label>
+      <input type="text" class="form-control" id="ResidencePlace" name="ResidencePlace" placeholder="Enter place of residence" />
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+
+</div>
+
+<script src="~/scripts/jquery-2.1.3.min.js"></script>
+<script src="~/scripts/bootstrap.min.js"></script>
+</body>
+
+</html>

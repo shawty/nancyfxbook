@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nancy Demo | Data Binding Example</title>
+    <link href="~/content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="page-header">
+        <h1 style="display: inline-block">Nancy Demo <small>Data Binding Example</small></h1>
+        <h1 style="display: inline-block" class="pull-right"><small><a href="~/" title="Click to return to demo home page">home <span class="glyphicon glyphicon-home"></span></a></small></h1>
+      </div>
+
+      <p class="lead">The results from your address form are as follows...</p>
+
+      <p>Record ID : <strong class="text-success">@Model.RecordId</strong></p>
+      <p>Name : <strong class="text-success">@Model.Name</strong></p>
+      <p>Address : <strong class="text-success">@Model.BuildingAddress</strong></p>
+      <p>Age : <strong class="text-success">@Model.Age</strong></p>
+      <p>Email Address : <strong class="text-success">@Model.Email</strong></p>
+
+      <a href="~/address" class="btn btn-primary">Go back to the input form</a>
+
+    </div>
+
+    <script src="~/scripts/jquery-2.1.3.min.js"></script>
+    <script src="~/scripts/bootstrap.min.js"></script>
+
+  </body>
+
+</html>

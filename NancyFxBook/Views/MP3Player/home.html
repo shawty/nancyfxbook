@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nancy Demo | MP3 Player</title>
+    <link href="~/content/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="page-header">
+        <h1 style="display: inline-block">Nancy Demo <small>MP3 Player</small></h1>
+        <h1 style="display: inline-block" class="pull-right"><small><a href="~/" title="Click to return to demo home page">home <span class="glyphicon glyphicon-home"></span></a></small></h1>
+      </div>
+
+      @If.Model.TrackAvailable
+
+      <audio autoplay="autoplay" controls="controls">
+        <source src="~/mp3player/playtrack/@Model.TrackToPlay.Pkid" />
+      </audio>
+
+      <p class="text-info">Track name     : <strong class="text-success">@Model.TrackToPlay.Title</strong></p>
+      <p class="text-info">Track artist   : <strong class="text-success">@Model.TrackToPlay.Artist</strong></p>
+      <p class="text-info">Track duration : <strong class="text-success">@Model.TrackToPlay.Duration</strong></p>
+      <p class="text-info">Track year     : <strong class="text-success">@Model.TrackToPlay.YearReleased</strong></p>
+      <p class="text-info">Track number   : <strong class="text-success">@Model.TrackToPlay.TrackNumber</strong></p>
+
+      <div class="btn-group btn-group-justified">
+        <a class="btn btn-primary" href="~/mp3player/albums">Choose music by album</a>
+        <a class="btn btn-primary" href="~/mp3player/artists">Choose music by artist</a>
+        <a class="btn btn-primary" href="~/mp3player/genres">Choose music by genre</a>
+      </div>
+
+      @EndIf
+
+      @IfNot.Model.TrackAvailable
+      <div class="col-md-12 text-center">
+        <h2>Select the music to play using the buttons below.</h2>
+
+        <div class="btn-group btn-group-justified">
+          <a class="btn btn-primary" href="~/mp3player/albums">Choose music by album</a>
+          <a class="btn btn-primary" href="~/mp3player/artists">Choose music by artist</a>
+          <a class="btn btn-primary" href="~/mp3player/genres">Choose music by genre</a>
+        </div>
+      </div>
+
+      @EndIf
+
+
+    </div>
+
+    <script src="~/scripts/jquery-2.1.3.min.js"></script>
+    <script src="~/scripts/bootstrap.min.js"></script>
+  </body>
+
+</html>

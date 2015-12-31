@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nancy Demo | Fluent Validator Example</title>
+    <link href="~/content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="page-header">
+        <h1 style="display: inline-block">Nancy Demo <small>Fluent Validation Example</small></h1>
+        <h1 style="display: inline-block" class="pull-right"><small><a href="~/" title="Click to return to demo home page">home <span class="glyphicon glyphicon-home"></span></a></small></h1>
+      </div>
+
+      <p class="lead">The form below has a model bound to it, this model is validated using the fluid validation functionality.</p>
+      <p>Please try filling the form in using both good and bad data to see the results of the validation.</p>
+
+      <form class="form-horizontal" action="~/fluentvalidation/validate" method="post">
+
+        <div class="@ViewBag.UserNameClasses">
+          <label for="UserName" class="col-sm-2 control-label">User Name</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="UserName" name="UserName" placeholder="Username" value="@Model.UserName" />
+            <span class="@ViewBag.UserNameHelpClasses">This can be anything you like for the demo, but it must be provided.</span>
+            <span class="@ViewBag.UserNameMessageClasses">@ViewBag.UserNameMessages</span>
+          </div>
+        </div>
+
+        <div class="@ViewBag.EmailAddressClasses">
+          <label for="EmailAddress" class="col-sm-2 control-label">Email Address</label>
+          <div class="col-sm-10">
+            <input type="email" class="form-control" id="EmailAddress" name="EmailAddress" placeholder="EmailAddress" value="@Model.EmailAddress" />
+            <span class="@ViewBag.EmailAddressHelpClasses">This must be a validly formatted email address and is required.</span>
+            <span class="@ViewBag.EmailAddressMessageClasses">@ViewBag.EmailAddressMessages</span>
+          </div>
+        </div>
+
+        <div class="@ViewBag.PasswordClasses">
+          <label for="Password" class="col-sm-2 control-label">Password</label>
+          <div class="col-sm-10">
+            <input type="password" class="form-control" id="Password" name="Password" placeholder="Password" />
+          </div>
+        </div>
+
+        <div class="@ViewBag.PasswordClasses">
+          <label for="PasswordRepeat" class="col-sm-2 control-label">Repeat Password</label>
+          <div class="col-sm-10">
+            <input type="password" class="form-control" id="PasswordRepeat" name="PasswordRepeat" placeholder="Repeat Password" />
+            <span class="@ViewBag.PasswordHelpClasses">Like any good user reg form, you must enter the password twice, and both must match.  For this demo the password is <strong>letmein</strong></span>
+            <span class="@ViewBag.PasswordMessageClasses">@ViewBag.PasswordMessages</span>
+          </div>
+        </div>
+
+        <div class="@ViewBag.PinCodeClasses">
+          <label for="PinCode" class="col-sm-2 control-label">4 Digit Pin Code</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="PinCode" name="PinCode" placeholder="Pin Code" value="@Model.PinCode" />
+            <span class="@ViewBag.PinCodeHelpClasses">For this demo the only valid pin code is <strong>1234</strong></span>
+            <span class="@ViewBag.PinCodeMessageClasses">@ViewBag.PinCodeMessages</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default">Validate Me</button>
+          </div>
+        </div>
+
+      </form>
+
+    </div>
+
+    <script src="~/scripts/jquery-2.1.3.min.js"></script>
+    <script src="~/scripts/bootstrap.min.js"></script>
+  </body>
+
+</html>

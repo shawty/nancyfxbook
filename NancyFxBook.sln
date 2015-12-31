@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NancyFxBook", "NancyFxBook\NancyFxBook.csproj", "{552672FB-958B-4651-9348-CCDC64AD2150}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoData", "DemoData\DemoData.csproj", "{29A0D96B-4AD8-43AA-A53C-42883120DA6E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NancyTesting", "NancyTesting\NancyTesting.csproj", "{F649502C-A22A-4BFB-8EEE-6AA55640408A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{552672FB-958B-4651-9348-CCDC64AD2150}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{552672FB-958B-4651-9348-CCDC64AD2150}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{552672FB-958B-4651-9348-CCDC64AD2150}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{552672FB-958B-4651-9348-CCDC64AD2150}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29A0D96B-4AD8-43AA-A53C-42883120DA6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29A0D96B-4AD8-43AA-A53C-42883120DA6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29A0D96B-4AD8-43AA-A53C-42883120DA6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29A0D96B-4AD8-43AA-A53C-42883120DA6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F649502C-A22A-4BFB-8EEE-6AA55640408A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F649502C-A22A-4BFB-8EEE-6AA55640408A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F649502C-A22A-4BFB-8EEE-6AA55640408A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F649502C-A22A-4BFB-8EEE-6AA55640408A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

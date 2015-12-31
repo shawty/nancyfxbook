@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MP3 Player | Choose tracks by genre</title>
+    <link href="~/content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+
+    <div class="container">
+      <h1>MP3 Player | Choose tracks by genre</h1>
+
+      <ul>@Each.Model.Tracks
+
+        <form method="POST" action="~/mp3player">
+          <li>
+            <p>@Current.Artist - @Current.Title
+              <button type="submit" class="btn btn-primary btn-xs">Play this track</button>
+              <input type="hidden" name="trackid" value="@Current.Pkid" />
+            </p>
+          </li>
+        </form>
+        @EndEach
+      </ul>
+
+    </div>
+
+    <script src="~/scripts/jquery-2.1.3.min.js"></script>
+    <script src="~/scripts/bootstrap.min.js"></script>
+
+  </body>
+
+</html>

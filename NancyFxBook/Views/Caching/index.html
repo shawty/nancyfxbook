@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nancy Demo | Caching Example</title>
+  <link href="~/content/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="page-header">
+    <h1 style="display: inline-block">Nancy Demo <small>Caching Example</small></h1>
+    <h1 style="display: inline-block" class="pull-right"><small><a href="~/" title="Click to return to demo home page">home <span class="glyphicon glyphicon-home"></span></a></small></h1>
+  </div>
+
+  <h4>This page was requested at <strong class="text-success">@Model.WhenRequested</strong></h4>
+
+  <br/><br/>
+
+  <p class="lead">This example uses before and after filters attached directly to the module servicng this request.</p>
+  <p>If you observer the time this page was created when refreshing it you'll see the page is handled by an output cache, this cache has a sliding window of 30 seconds.</p>
+  <p>
+    As long as your refreshing the page, you'll reset the timer and the cache will continue to wait 30 seconds after the last request before expiring, if you request the page then
+    leave it for 30 seconds before rerequesting it, you'll see you get a new copy.
+  </p>
+
+</div>
+
+<script src="~/scripts/jquery-2.1.3.min.js"></script>
+<script src="~/scripts/bootstrap.min.js"></script>
+</body>
+
+</html>

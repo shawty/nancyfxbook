@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nancy Demo | Session Example</title>
+  <link href="~/content/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="page-header">
+    <h1>Nancy Demo <small>Session Example</small>
+    </h1>
+  </div>
+
+  <h3>Hello there : <strong class="text-info">@Model.FullName</strong></h3>
+  <h3>who can be contacted at <strong class="text-info">@Model.EmailAddress</strong></h3>
+  <h3>and lives in <strong class="text-info">@Model.ResidencePlace</strong></h3>
+
+  <br/><br/>
+
+  <h4><a href="~/session/">Return back</a> to the input form page</h4>
+  <h4>or <a href="~/session/clearsessionvars">Click Here</a> to clear the entered data</h4>
+
+</div>
+
+<script src="~/scripts/jquery-2.1.3.min.js"></script>
+<script src="~/scripts/bootstrap.min.js"></script>
+</body>
+
+</html>
