@@ -53,6 +53,13 @@
     <Compile Include="IDataProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Sql\CreateAlbumsTable.sql" />
+    <Content Include="Sql\CreateArtistsTable.sql" />
+    <Content Include="Sql\CreateGenresTable.sql" />
+    <Content Include="Sql\CreateTracksTable.sql" />
+    <Content Include="Sql\CreateDatabase.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
