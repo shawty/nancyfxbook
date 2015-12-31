@@ -1,12 +1,4 @@
-﻿// //===========================================================================================
-// // Project          : demodata
-// // Author           : Peter Shaw (Digital Solutions UK)
-// // Date             : 22/04/2015
-// // Module           : GenreData.cs
-// // Purpose          : Simple ADO.NET crud interface to the tracks table
-// //===========================================================================================
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using demodata.entities;
